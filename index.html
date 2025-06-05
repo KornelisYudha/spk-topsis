@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPK Step 1 - Input Kriteria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .criteria-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .criteria-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .criteria-item input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .criteria-item input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .weight-summary {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .criteria-description {
+            background: #e6fffa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #38b2ac;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Sistem Pendukung Keputusan</h1>
+            <p>Pemilihan Perguruan Tinggi dengan Metode TOPSIS</p>
+            <small>Kornelis Yudha Satria - NPM: 2210010298</small>
+        </div>
+
+        <div class="step-indicator">
+            <div class="step active">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+        </div>
+
+        <div class="card">
+            <h2>📋 Step 1: Kriteria Penilaian</h2>
+            
+            <div class="criteria-description">
+                <h3>Penjelasan Kriteria:</h3>
+                <p>Sesuaikan bobot kriteria sesuai preferensi Anda. Total bobot harus sama dengan 1.0 (100%). 
+                Semakin tinggi bobotnya, semakin penting kriteria tersebut dalam pengambilan keputusan.</p>
+            </div>
+
+            <div class="criteria-grid">
+                <div class="criteria-item">
+                    <label>💰 Biaya Pendidikan (Cost)</label>
+                    <input type="number" id="w1" step="0.01" min="0" max="1" value="0.25" onchange="updateWeights()">
+                    <small>Biaya kuliah per tahun (dalam juta rupiah)</small>
+                </div>
+
+                <div class="criteria-item">
+                    <label>🏆 Akreditasi (Benefit)</label>
+                    <input type="number" id="w2" step="0.01" min="0" max="1" value="0.20" onchange="updateWeights()">
+                    <small>Status akreditasi perguruan tinggi (skala 1-100)</small>
+                </div>
+
+                <div class="criteria-item">
+                    <label>🏢 Fasilitas Kampus (Benefit)</label>
+                    <input type="number" id="w3" step="0.01" min="0" max="1" value="0.15" onchange="updateWeights()">
+                    <small>Kualitas fasilitas pendukung (skala 1-100)</small>
+                </div>
+
+                <div class="criteria-item">
+                    <label>💼 Reputasi di Dunia Kerja (Benefit)</label>
+                    <input type="number" id="w4" step="0.01" min="0" max="1" value="0.15" onchange="updateWeights()">
+                    <small>Pengakuan di industri (skala 1-100)</small>
+                </div>
+
+                <div class="criteria-item">
+                    <label>👨‍🏫 Kualitas Dosen (Benefit)</label>
+                    <input type="number" id="w5" step="0.01" min="0" max="1" value="0.15" onchange="updateWeights()">
+                    <small>Kualifikasi dan kompetensi dosen (skala 1-100)</small>
+                </div>
+
+                <div class="criteria-item">
+                    <label>📍 Lokasi & Lingkungan (Benefit)</label>
+                    <input type="number" id="w6" step="0.01" min="0" max="1" value="0.10" onchange="updateWeights()">
+                    <small>Kemudahan akses dan lingkungan kampus (skala 1-100)</small>
+                </div>
+            </div>
+
+            <div class="weight-summary">
+                <strong>Total Bobot: <span id="total-weight">1.00</span></strong>
+                <span id="weight-status" style="margin-left: 10px;"></span>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn" onclick="saveAndContinue()">Simpan & Lanjut ke Step 2 →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateWeights() {
+            const weights = [];
+            for (let i = 1; i <= 6; i++) {
+                weights.push(parseFloat(document.getElementById(`w${i}`).value) || 0);
+            }
+            
+            const total = weights.reduce((sum, w) => sum + w, 0);
+            document.getElementById('total-weight').textContent = total.toFixed(2);
+            
+            const status = document.getElementById('weight-status');
+            if (Math.abs(total - 1.0) < 0.001) {
+                status.textContent = "✅ Valid";
+                status.style.color = "#4CAF50";
+            } else {
+                status.textContent = "❌ Total harus = 1.0";
+                status.style.color = "#ef4444";
+            }
+        }
+
+        function saveAndContinue() {
+            // Validasi bobot
+            const weights = Array.from({length: 6}, (_, i) => 
+                parseFloat(document.getElementById(`w${i+1}`).value) || 0
+            );
+            
+            const total = weights.reduce((sum, w) => sum + w, 0);
+            
+            if (Math.abs(total - 1.0) >= 0.001) {
+                alert("Total bobot kriteria harus sama dengan 1.0!");
+                return;
+            }
+
+            // Simpan ke sessionStorage
+            const criteriaData = {
+                weights: weights,
+                labels: [
+                    "Biaya Pendidikan (Cost)",
+                    "Akreditasi (Benefit)", 
+                    "Fasilitas Kampus (Benefit)",
+                    "Reputasi di Dunia Kerja (Benefit)",
+                    "Kualitas Dosen (Benefit)",
+                    "Lokasi & Lingkungan (Benefit)"
+                ]
+            };
+            
+            // Untuk demo, simpan dalam variabel global
+            window.criteriaWeights = weights;
+            
+            alert("Data kriteria berhasil disimpan!\n\nSelanjutnya buka file 'step2-alternatives.html' untuk melanjutkan.");
+        }
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', function() {
+            updateWeights();
+        });
+    </script>
+</body>
+</html>
